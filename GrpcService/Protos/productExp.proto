@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProductExpService";
+
+service ProductExp {
+	rpc GetProductList (Empty) returns (Products);
+	
+}
+//rpc GetProduct (GetProductDetailRequest) returns (ProductDetail);
+//	rpc CreateProduct (CreateProductDetailRequest) returns (ProductDetail);
+
+message Empty{
+
+}
+message Products{
+	repeated ProductDetail items=1;
+
+}
+message GetProductDetailRequest{
+	int32 Id=1;
+}
+message ProductDetail{
+	 int32 Id =1;
+     string Name =2;
+	 int32 Price=3;
+
+}
+message CreateProductDetailRequest{
+	ProductDetail Product=1;
+}
